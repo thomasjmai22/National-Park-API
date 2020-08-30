@@ -10,13 +10,12 @@ function formatQueryParams(params) {
 }
 
 function displayResults(responseJson) {
-  // if there are previous results, remove them
   console.log(responseJson);
   $("#results-list").empty();
-  // iterate through the items array
+
   for (let i = 0; i < responseJson.data.length; i++) {
     $("#results-list").append(
-      `<li><h3>${responseJson.data[i].name}</h3>
+      `<li><h3><a href="${responseJson.data[i].url}">${responseJson.data[i].fullName}</a></h3>
       <p>${responseJson.data[i].description}</p>
       <img src='${responseJson.data[i].images[0].url}'>
       </li>`
@@ -53,6 +52,7 @@ function getparks(stateCode, limit = 10) {
 function watchForm() {
   $("form").submit((event) => {
     event.preventDefault();
+    // const parkCode = "https://api.nps.gov/api/v1/parks";
     const stateCode = $("#js-search-term").val();
     const maxResults = $("#js-max-results").val();
     getparks(stateCode, maxResults);
