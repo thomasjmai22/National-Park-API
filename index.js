@@ -1,4 +1,5 @@
-// put your own value below!
+"use strict";
+
 const api_key = "Ua2XDxAeghhTyQ4BgPZk41TfugEu31IidfPUqwIK";
 const searchURL = "https://developer.nps.gov/api/v1/parks";
 
@@ -53,7 +54,9 @@ function watchForm() {
   $("form").submit((event) => {
     event.preventDefault();
     // const parkCode = "https://api.nps.gov/api/v1/parks";
-    const stateCode = $("#js-search-term").val();
+    const stateCode = $("#js-search-term")
+      .val()
+      .split("," + " ");
     const maxResults = $("#js-max-results").val();
     getparks(stateCode, maxResults);
   });

@@ -13,21 +13,22 @@
       <h1>National Park Search</h1>
 
       <form id="js-form">
-        <div class="state" <label for="search-term">State Abbreviation</label>
+        <div class="state" <label for="search-term">State Abbreviation <span class="example">Example: AZ, NY</span></label>
         <input
           type="text"
           name="search-term"
           id="js-search-term"
-          maxlength="2"
+          maxlength="10"
           required
         /></div>
 
-        <div class="max-result" <label for="max-results">Maximum results to return</label>
+        <div class="max-result" <label for="max-results">Number of results (Max: 10)</label>
         <input
           type="number"
           name="max-results"
           id="js-max-results"
           value="10"
+          max="10"
         /></div>
 
         <input class="go" type="submit" value="Go!" />
